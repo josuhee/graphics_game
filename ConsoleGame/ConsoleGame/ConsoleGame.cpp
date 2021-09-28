@@ -1,8 +1,10 @@
 ﻿#include "game.h"
 
 GLvoid drawBackground(GLvoid); 
-void DoDisplay();
-void seongele();
+GLvoid DrawTri(GLvoid);
+GLvoid CubeMatrix(GLvoid);
+GLvoid DrawScene(GLvoid);
+GLvoid DrawText(GLvoid);
 
 void main(int argc, char** argv) {
     glutInit(&argc, argv);
@@ -10,16 +12,50 @@ void main(int argc, char** argv) {
     glutInitWindowPosition(600, 300);
     glutInitWindowSize(300, 300);
     glutCreateWindow("Console Game");
-    glutDisplayFunc(seongele);
+    InitFont();
+    glutDisplayFunc(DrawScene);
     glutKeyboardFunc(processNormalKey);
     glutMainLoop();
+    atexit(KillFont);
 }
 
-void DoDisplay()
+GLvoid DrawScene(GLvoid)
 {
-    // change background color
-    glClearColor(1.0, 0.24, 0.5, 0);
+    //background color
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
+
+    //cube
+    CubeMatrix();
+
+    //text
+    DrawText();
+
+    //draw
+    glFlush();
+}
+
+GLvoid DrawText(GLvoid)
+{
+    glColor4f(1.0, 1.0, 0.0, 1);
+    glRasterPos2f(0.0f, 0.0f);
+    glPrint("Hello World");
+}
+
+GLvoid CubeMatrix(GLvoid)
+{
+    glColor4f(1.0, 0.0, 1.0, 1);
+    glPushMatrix();
+
+    //회전할 각도, x, y, z 축?
+    glRotatef(30, 1.0f, 1.0f, 1.0f);
+    //glTranslatef(-0.6, 0.6, 0.0);
+    glutWireCube(0.4);
+    glPopMatrix();
+}
+
+GLvoid DrawTri(GLvoid)
+{
     // change color of triangle
     glColor3f(0.4, 0.72, 0.1);
 
@@ -30,35 +66,3 @@ void DoDisplay()
     glEnd();
     glFlush();
 }
-
-void seongele() 
-{
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    glColor4f(1.0, 0.0, 1.0, 1);
-    glPushMatrix();
-
-    //회전할 각도, x, y, z 축?
-    glRotatef(30, 1.0f, 1.0f, 1.0f);
-    //glTranslatef(-0.6, 0.6, 0.0);
-    glutWireCube(0.4);
-    glPopMatrix();
-    glFlush();
-}
-
-/*
-
-GLvoid drawGameStart(GLvoid)
-{
-    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-    glBegin(GL_QUADS);
-    glVertex2f(-0.5f, -0.5f);
-    glVertex2f(0.5f, -0.5f);
-    glVertex2f(0.5f, 0.5f);
-    glVertex2f(-0.5f, 0.5f);
-    glEnd();
-    glFinish();
-}
-*/

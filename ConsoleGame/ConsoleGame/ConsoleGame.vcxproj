@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="ConsoleGame.cpp" />
     <ClCompile Include="keyEvent.cpp" />
+    <ClCompile Include="printText.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
