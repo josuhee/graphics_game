@@ -1,24 +1,64 @@
-﻿#include <GL/glut.h>
-#include <GL/GL.h>
-#include <GL/GLU.h>
+﻿#include "game.h"
 
-void MyDisplay() {
+GLvoid drawBackground(GLvoid); 
+void DoDisplay();
+void seongele();
+
+void main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowPosition(600, 300);
+    glutInitWindowSize(300, 300);
+    glutCreateWindow("Console Game");
+    glutDisplayFunc(seongele);
+    glutKeyboardFunc(processNormalKey);
+    glutMainLoop();
+}
+
+void DoDisplay()
+{
+    // change background color
+    glClearColor(1.0, 0.24, 0.5, 0);
     glClear(GL_COLOR_BUFFER_BIT);
-    glViewport(0, 0, 300, 300);
+    // change color of triangle
+    glColor3f(0.4, 0.72, 0.1);
+
+    glBegin(GL_TRIANGLES);
+    glVertex2f(0.0, 0.5);
+    glVertex2f(-0.5, -0.5);
+    glVertex2f(0.5, -0.5);
     glEnd();
     glFlush();
 }
 
-int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_RGB);
-    glutInitWindowSize(500, 500);
-    glutInitWindowPosition(0, 0);
-    glutCreateWindow("Test");
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    glOrtho(-1.0, 1.0, -1.0, 1.0, -1.0, 1.0);
-    glutDisplayFunc(MyDisplay);
-    glutMainLoop();
-    return 0;
+void seongele() 
+{
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glColor4f(1.0, 0.0, 1.0, 1);
+    glPushMatrix();
+
+    //회전할 각도, x, y, z 축?
+    glRotatef(30, 1.0f, 1.0f, 1.0f);
+    //glTranslatef(-0.6, 0.6, 0.0);
+    glutWireCube(0.4);
+    glPopMatrix();
+    glFlush();
 }
+
+/*
+
+GLvoid drawGameStart(GLvoid)
+{
+    glClearColor(1.0f, 1.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glBegin(GL_QUADS);
+    glVertex2f(-0.5f, -0.5f);
+    glVertex2f(0.5f, -0.5f);
+    glVertex2f(0.5f, 0.5f);
+    glVertex2f(-0.5f, 0.5f);
+    glEnd();
+    glFinish();
+}
+*/
