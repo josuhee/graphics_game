@@ -1,2 +1,3 @@
-﻿  keyEvent.cpp
+﻿  ConsoleGame.cpp
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\ConsoleGame.cpp(40,32): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
   ConsoleGame.vcxproj -> D:\Github\graphics_game\ConsoleGame\Debug\ConsoleGame.exe

@@ -9,7 +9,7 @@ GLvoid BuildFont(GLvoid)
     HFONT font; // <1>
     LPCWSTR fontName = L"Arial\0";
     base = glGenLists(96); // <2>
-    font = CreateFont(-24, // <3-1>
+    font = CreateFont(-50, // <3-1>
         0,
         0,
         0,
