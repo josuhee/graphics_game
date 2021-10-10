@@ -11,8 +11,11 @@
 # include <cstdlib>
 # include <cmath>
 
+/*==========monuse event=====*/
+void		mouse(int button, int state, int x, int y);
+
 /*==========key event========*/
-void processNormalKey(unsigned char key, int x, int y);
+void		processNormalKey(unsigned char key, int x, int y);
 
 /*==========print text========*/
 GLvoid	glPrint(const char* text);

@@ -146,9 +146,11 @@
     <ClCompile Include="mouseEvent.cpp" />
     <ClCompile Include="printText.cpp" />
     <ClCompile Include="timer.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
