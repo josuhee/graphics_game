@@ -1,11 +1,10 @@
-﻿  startPage.cpp
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(13,56): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(20,55): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(31,57): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(48,24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(49,24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(51,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(52,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(54,45): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(58,44): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+﻿  mouseEvent.cpp
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(8,13): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(9,13): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(12,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(13,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(43,13): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(44,13): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(47,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(48,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   ConsoleGame.vcxproj -> D:\Github\graphics_game\ConsoleGame\Debug\ConsoleGame.exe

@@ -3,19 +3,24 @@
 extern GLfloat cubeAngleRotation;
 extern GLfloat currentAngleOfRotation;
 
+bool            solid[2] = { false, false };
+
 typedef struct   s_point {
     float x;
     float y;
 }t_point;
 
-void    drawCude(float x, float y)
+static void    drawCude(float x, float y, bool flag)
 {
-    glColor4f(248 / 255.0, 94 / 255.0, 252 / 255.0, 0.5);
-    glPushMatrix();
-    glTranslatef(x, y, 0.0);
-    glRotatef(cubeAngleRotation, 1.0f, 1.0f, 1.0f);
-    glutSolidCube(0.2);
-    glPopMatrix();
+    if (flag)
+    {
+        glColor4f(248 / 255.0, 94 / 255.0, 252 / 255.0, 0.5);
+        glPushMatrix();
+        glTranslatef(x, y, 0.0);
+        glRotatef(cubeAngleRotation, 1.0f, 1.0f, 1.0f);
+        glutSolidCube(0.2);
+        glPopMatrix();
+    }
 
     glColor4f(157 / 255.0, 7 / 255.0, 161 / 255.0, 1.0);
     glPushMatrix();
@@ -26,7 +31,7 @@ void    drawCude(float x, float y)
     glPopMatrix();
 }
 
-void    drawRect(t_point p1, t_point p2)
+static void    drawRect(t_point p1, t_point p2)
 {
     glColor4f(254 / 255.0, 222 / 255.0, 236 / 255.0, 1.0);
 
@@ -43,10 +48,10 @@ void    drawRect(t_point p1, t_point p2)
 
 }
 
-GLvoid startPage()
+GLvoid      startPage()
 {
-    drawCude(-0.6, -0.2);
-    drawCude(-0.6, -0.6);
+    drawCude(-0.6, -0.2, solid[0]);
+    drawCude(-0.6, -0.6, solid[1]);
 
     drawRect({ -0.3, -0.05 }, { 0.8, -0.35 });
     drawRect({ -0.3, -0.45 }, { 0.8, -0.75 });
@@ -58,4 +63,8 @@ GLvoid startPage()
     Font info2{0.0, -0.7, 0.0, 550.0, 10.0 };
     glColor4f(0.5, 1.0, 1.0, 1.0);
     glPrint("EXIT", info2);
+
+    Font info3{ -0.7, 0.3, 0.0, 250.0, 10.0 };
+    glColor4f(1.0, 1.0, 1.0, 1.0);
+    glPrint("Game", info3);
 }

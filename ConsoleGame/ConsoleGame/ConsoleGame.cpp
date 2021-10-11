@@ -1,8 +1,6 @@
 ﻿#include "game.h"
 #include "window.h"
 
-static bool spinning = true;
-static const int FPS = 60;
 static int num = 1;
 GLfloat	currentAngleOfRotation = 0.0;
 GLfloat	cubeAngleRotation = 0.0;
@@ -36,21 +34,6 @@ void display() {
     }
     glutSwapBuffers();
 }
-
-// 타이머
-// 사각형의 각도 변환 및 다시 그리기.
-void timer(int v) {
-    if (spinning) {
-        currentAngleOfRotation += 1.0;
-        if (currentAngleOfRotation > 360.0) {
-            currentAngleOfRotation -= 360.0;
-        }
-        glutPostRedisplay();
-    }
-    glutTimerFunc(10, timer, v);
-}
-
-
 
 int main(int argc, char** argv) {
     //Get information of Window

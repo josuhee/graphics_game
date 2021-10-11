@@ -2,20 +2,28 @@
 #include "window.h"
 
 void mouse(int button, int state, int x, int y) {
+    Window* win = Window::getInstance();
+
+    //기존 윈도우 크기
+    float w = win->getWidth();
+    float h = win->getHeight();
+
+    //변환 좌표
+    float nw = (x - w / 2.0) * (1.0 / (w / 2.0)) * (w / h);
+    float nh = -(y - h / 2.0) * (1.0 / (h / 2.0));
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        //왼쪽 마우스
-        /*
-        spinning = true;
-        //윈도우 좌표
-        printf("(%d, %d)\n", x, y);
-        //변환 좌표
-        int w = 800;
-        int h = 500;
-        float nx = (float)(x - (float)w / 2.0) * (float)(1.0 / (float)(w / 2.0));
-        float ny = -(float)(y - (float)h / 2.0) * (float)(1.0 / (float)(h / 2.0));
-        printf("(%.1lf, %.1lf)\n\n", nx, ny);
-        num = 1;
-        */
+        if (nw >= -0.3 && nw <= 0.8)
+        {
+            if (nh >= -0.35 && nh <= -0.05)
+            {
+                //go game page
+            }
+            if (nh >= -0.75 && nh <= -0.45)
+            {
+                //End of the program
+                exit(0);
+            }
+        }
     }
     else if (button == GLUT_RIGHT_BUTTON && state == GLUT_DOWN) {
         //오른쪽 마우스
@@ -26,6 +34,8 @@ void mouse(int button, int state, int x, int y) {
     }
 }
 
+extern bool solid[2];
+
 void hover_mouse(int x, int y)
 {
     Window* win = Window::getInstance();
@@ -35,8 +45,32 @@ void hover_mouse(int x, int y)
     float h = win->getHeight();
 
     //변환 좌표
-    float nw = (x - w / 2.0) * (1.0 / (w / 2.0));
+    float nw = (x - w / 2.0) * (1.0 / (w / 2.0)) * (w / h);
     float nh = -(y - h / 2.0) * (1.0 / (h / 2.0));
 
     printf("%.1f %.1f\n", nw, nh);
+
+    //창의 크기가 변할 때 이벤트를 보장하지 않음.
+    //바뀌는 창의 크기에 따라 window의 정보를 업데이트할 필요가 있음.
+
+    if (win->getMode() == 1)
+    {
+        if (nw >= -0.3 && nw <= 0.8)
+        {
+            if (nh >= -0.35 && nh <= -0.05)
+                solid[0] = true;
+            else
+                solid[0] = false;
+            if (nh >= -0.75 && nh <= -0.45)
+                solid[1] = true;
+            else
+                solid[1] = false;
+        }
+        else
+            solid[0] = solid[1] = false;
+    }
 }
+
+//GetCursorPos
+//glfwGetCursorPos
+//glfwSetInputMode
