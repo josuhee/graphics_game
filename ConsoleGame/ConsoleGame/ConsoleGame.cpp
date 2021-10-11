@@ -28,8 +28,15 @@ void display() {
 
     if (num == 1)
     {
-        glColor3f(1.0, 1.0, 0.0);
+        glColor4f(1.0, 1.0, 0.5, 1.0);
         glPushMatrix();
+        glRotatef(currentAngleOfRotation, 1.0f, 1.0f, 1.0f);
+        glutSolidCube(0.4);
+        glPopMatrix();
+
+        glColor3f(1.0, 0.0, 1.0);
+        glPushMatrix();
+        glLineWidth(4.0);
         glRotatef(currentAngleOfRotation, 1.0f, 1.0f, 1.0f);
         glutWireCube(0.4);
         glPopMatrix();
@@ -90,6 +97,7 @@ int main(int argc, char** argv) {
     
     //event
     glutKeyboardFunc(processNormalKey);
+    glutSpecialFunc(processSpcialKey);
     glutMouseFunc(mouse);
     
     //loop
