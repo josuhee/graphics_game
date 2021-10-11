@@ -1,13 +1,13 @@
 #include "game.h"
-/*
-void timer(int v) {
-    if (spinning) {
-        currentAngleOfRotation += 1.0;
-        if (currentAngleOfRotation > 360.0) {
-            currentAngleOfRotation -= 360.0;
-        }
-        glutPostRedisplay();
+
+extern GLfloat cubeAngleRotation;
+
+void cubeTimer(int v) {
+    cubeAngleRotation += 1.0;
+    if (cubeAngleRotation > 360.0) {
+        cubeAngleRotation -= 360.0;
     }
-    glutTimerFunc(10, timer, v);
+    glutPostRedisplay();
+
+    glutTimerFunc(10, cubeTimer, v);
 }
-*/

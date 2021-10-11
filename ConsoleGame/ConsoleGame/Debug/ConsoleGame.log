@@ -1,7 +1,4 @@
 ﻿  ConsoleGame.cpp
-  keyEvent.cpp
-  mouseEvent.cpp
-  printText.cpp
-  timer.cpp
+  startPage.cpp
   코드를 생성하고 있습니다...
   ConsoleGame.vcxproj -> D:\Github\graphics_game\ConsoleGame\Debug\ConsoleGame.exe

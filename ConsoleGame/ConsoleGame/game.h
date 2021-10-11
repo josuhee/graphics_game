@@ -13,14 +13,21 @@
 # include <stdio.h>
 # include "font.h"
 
+/*==========page===========*/
+GLvoid		startPage();
+
 /*==========monuse event=====*/
-void		mouse(int button, int state, int x, int y);
+void			mouse(int button, int state, int x, int y);
 
 /*==========key event========*/
-void		processNormalKey(unsigned char key, int x, int y);
-void		processSpcialKey(int key, int x, int y);
+void			processNormalKey(unsigned char key, int x, int y);
+void			processSpcialKey(int key, int x, int y);
 
 /*==========print text========*/
-GLvoid	glPrint(const char* text, Font info);
+GLvoid		glPrint(const char* text, Font info);
+
+/*==========timer===========*/
+void			cubeTimer(int v);
+
 
 #endif

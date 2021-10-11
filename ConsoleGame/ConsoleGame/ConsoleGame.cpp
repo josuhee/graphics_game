@@ -1,12 +1,11 @@
 ﻿#include "game.h"
 #include "window.h"
-#include "font.h"
-#include <stdio.h>
 
 static bool spinning = true;
 static const int FPS = 60;
-static GLfloat currentAngleOfRotation = 0.0;
 static int num = 1;
+GLfloat	currentAngleOfRotation = 0.0;
+GLfloat	cubeAngleRotation = 0.0;
 
 void reshape(GLint w, GLint h) {
     glViewport(0, 0, w, h);
@@ -31,28 +30,7 @@ void display() {
 
     if (num == 1)
     {
-        glColor4f(1.0, 1.0, 0.5, 1.0);
-        glPushMatrix();
-        glRotatef(currentAngleOfRotation, 1.0f, 1.0f, 1.0f);
-        glutSolidCube(0.4);
-        glPopMatrix();
-
-        glColor3f(1.0, 0.0, 1.0);
-        glPushMatrix();
-        glLineWidth(4.0);
-        glRotatef(currentAngleOfRotation, 1.0f, 1.0f, 1.0f);
-        glutWireCube(0.4);
-        glPopMatrix();
-
-        glColor3f(0.0, 1.0, 0.0);
-        glPushMatrix();
-        glTranslatef(0.5, 0.0, 0.5);
-        glRotatef(100, 1.0f, 1.0f, 1.0f);
-        glutWireCube(0.4);
-        glPopMatrix();
-
-        glColor3f(0.5, 1.0, 1.0);
-        glPrint("Hi", info);
+        startPage();
     }
     else
     {
@@ -90,7 +68,7 @@ int main(int argc, char** argv) {
     glutDisplayFunc(display);
     
     //timer
-    glutTimerFunc(100, timer, 0);
+    glutTimerFunc(100, cubeTimer, 0);
     
     //event
     glutKeyboardFunc(processNormalKey);
