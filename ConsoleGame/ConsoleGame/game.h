@@ -11,6 +11,7 @@
 # include <cstdlib>
 # include <cmath>
 # include <stdio.h>
+# include "font.h"
 
 /*==========monuse event=====*/
 void		mouse(int button, int state, int x, int y);
@@ -20,8 +21,6 @@ void		processNormalKey(unsigned char key, int x, int y);
 void		processSpcialKey(int key, int x, int y);
 
 /*==========print text========*/
-GLvoid	glPrint(const char* text);
-GLvoid	KillFont(GLvoid);
-int			InitFont(GLvoid);
+GLvoid	glPrint(const char* text, Font info);
 
 #endif

@@ -1,5 +1,6 @@
 ﻿#include "game.h"
 #include "window.h"
+#include "font.h"
 #include <stdio.h>
 
 static bool spinning = true;
@@ -26,6 +27,8 @@ void display() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity(); //행렬초기화
 
+    Font info{ -0.5, 0.0, 0.0, 300.0, 10.0 };
+
     if (num == 1)
     {
         glColor4f(1.0, 1.0, 0.5, 1.0);
@@ -48,17 +51,12 @@ void display() {
         glutWireCube(0.4);
         glPopMatrix();
 
-        glColor3f(0.0, 1.0, 1.0);
-        glRasterPos2f(0.0f, 0.0f);
-        //glTranslatef(-0.6, 0.6, 0.0);
-        glPrint("Hello");
+        glColor3f(0.5, 1.0, 1.0);
+        glPrint("Hi", info);
     }
     else
     {
-        glColor3f(0.0, 1.0, 1.0);
-        glRasterPos2f(0.0f, 0.0f);
-        //glTranslatef(-0.6, 0.6, 0.0);
-        glPrint("Bye");
+        glPrint("Bye", info);
     }
     glutSwapBuffers();
 }
@@ -89,7 +87,6 @@ int main(int argc, char** argv) {
     glutInitWindowSize(win->getWidth(), win->getHeight());
     glutCreateWindow("Spinning Square");
     glutReshapeFunc(reshape);
-    InitFont();
     glutDisplayFunc(display);
     
     //timer
@@ -102,8 +99,5 @@ int main(int argc, char** argv) {
     
     //loop
     glutMainLoop();
-
-    //free font
-    atexit(KillFont);
     return (0);
 }
