@@ -1,4 +1,11 @@
-﻿  ConsoleGame.cpp
-  startPage.cpp
-  코드를 생성하고 있습니다...
+﻿  startPage.cpp
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(13,56): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(20,55): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(31,57): warning C4305: '인수': 'double'에서 'GLfloat'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(48,24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(49,24): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(51,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(52,45): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(54,45): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
+D:\Github\graphics_game\ConsoleGame\ConsoleGame\startPage.cpp(58,44): warning C4305: '인수': 'double'에서 'float'(으)로 잘립니다.
   ConsoleGame.vcxproj -> D:\Github\graphics_game\ConsoleGame\Debug\ConsoleGame.exe

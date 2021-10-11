@@ -18,6 +18,7 @@ GLvoid		startPage();
 
 /*==========monuse event=====*/
 void			mouse(int button, int state, int x, int y);
+void			hover_mouse(int x, int y);
 
 /*==========key event========*/
 void			processNormalKey(unsigned char key, int x, int y);

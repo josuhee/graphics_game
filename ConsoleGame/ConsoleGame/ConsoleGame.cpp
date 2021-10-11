@@ -29,9 +29,7 @@ void display() {
     Font info{ -0.5, 0.0, 0.0, 300.0, 10.0 };
 
     if (num == 1)
-    {
         startPage();
-    }
     else
     {
         glPrint("Bye", info);
@@ -74,6 +72,7 @@ int main(int argc, char** argv) {
     glutKeyboardFunc(processNormalKey);
     glutSpecialFunc(processSpcialKey);
     glutMouseFunc(mouse);
+    glutPassiveMotionFunc(hover_mouse);
     
     //loop
     glutMainLoop();
