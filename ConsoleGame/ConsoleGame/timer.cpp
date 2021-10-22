@@ -11,3 +11,10 @@ void cubeTimer(int v) {
 
     glutTimerFunc(10, cubeTimer, v);
 }
+
+/*
+timer 관리 아이디어
+헤더 정보를 끌어와서 검사하기??
+
+
+*/

@@ -33,9 +33,7 @@ static void    drawCude(float x, float y, bool flag)
 
 static void    drawRect(t_point p1, t_point p2)
 {
-    glColor4f(254 / 255.0, 222 / 255.0, 236 / 255.0, 1.0);
-
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     glBegin(GL_POLYGON);
         glVertex2f(p1.x, p1.y);
@@ -44,17 +42,23 @@ static void    drawRect(t_point p1, t_point p2)
         glVertex2f(p2.x, p1.y);
     glEnd();
 
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
 }
 
 GLvoid      startPage()
 {
+    glColor4f(7 / 255.0, 44 / 255.0, 105 / 255.0, 1.0);
+    drawRect({ -1.6, -1.0 }, { 1.6, 1.0 });
+
     drawCude(-0.6, -0.2, solid[0]);
     drawCude(-0.6, -0.6, solid[1]);
 
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glColor4f(254 / 255.0, 222 / 255.0, 236 / 255.0, 1.0);
     drawRect({ -0.3, -0.05 }, { 0.8, -0.35 });
     drawRect({ -0.3, -0.45 }, { 0.8, -0.75 });
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
     Font info{ -0.1, -0.3, 0.0, 550.0, 10.0 };
     glColor4f(0.5, 1.0, 1.0, 1.0);

@@ -4,10 +4,12 @@
 class Window
 {
 private:
-	Window():w(800), h(500), mode(1) {};
+	Window() :w(800), h(500), mode(1), fixed(8.0 / 5.0), aspect(800.0 / 500.0) {};
 	int w;
 	int h;
 	int mode;
+	float fixed;
+	float aspect;
 
 public:
 	static Window *getInstance() {
@@ -23,8 +25,20 @@ public:
 	int getMode() {
 		return mode;
 	}
+	float getFixed() {
+		return fixed;
+	}
+	float getAspect() {
+		return aspect;
+	}
 	void setWidth(int w) {
 		this->w = w;
+	}
+	void setHeight(int h) {
+		this->h = h;
+	}
+	void setAspect(float aspect) {
+		this->aspect = aspect;
 	}
 };
 

@@ -5,8 +5,8 @@ void mouse(int button, int state, int x, int y) {
     Window* win = Window::getInstance();
 
     //기존 윈도우 크기
-    float w = win->getWidth();
-    float h = win->getHeight();
+    float w = (float)win->getWidth();
+    float h = (float)win->getHeight();
 
     //변환 좌표
     float nw = (x - w / 2.0) * (1.0 / (w / 2.0)) * (w / h);
@@ -41,17 +41,27 @@ void hover_mouse(int x, int y)
     Window* win = Window::getInstance();
     
     //기존 윈도우 크기
-    float w = win->getWidth();
-    float h = win->getHeight();
+    float w = (float)win->getWidth();
+    float h = (float)win->getHeight();
+    float aspect = win->getAspect();
+    float fixed = win->getFixed();
 
     //변환 좌표
-    float nw = (x - w / 2.0) * (1.0 / (w / 2.0)) * (w / h);
-    float nh = -(y - h / 2.0) * (1.0 / (h / 2.0));
+    float nw;
+    float nh;
+
+
+    if ((float)w < (float)h * fixed) {
+        nw = (x - w / 2.0) * (1.0 / (w / 2.0)) * fixed;
+        nh = -(y - h / 2.0) * (1.0 / (h / 2.0)) / aspect * fixed;
+    }
+    else {
+        nw = (x - w / 2.0) * (1.0 / (w / 2.0)) * aspect;
+        nh = -(y - h / 2.0) * (1.0 / (h / 2.0));
+    }
+
 
     printf("%.1f %.1f\n", nw, nh);
-
-    //창의 크기가 변할 때 이벤트를 보장하지 않음.
-    //바뀌는 창의 크기에 따라 window의 정보를 업데이트할 필요가 있음.
 
     if (win->getMode() == 1)
     {

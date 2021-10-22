@@ -6,17 +6,48 @@ GLfloat	currentAngleOfRotation = 0.0;
 GLfloat	cubeAngleRotation = 0.0;
 
 void reshape(GLint w, GLint h) {
+    Window* win = Window::getInstance();
+    GLfloat max_w;
+    GLfloat max_h;
+    GLfloat fixed = win->getFixed();
+
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 
-    GLfloat aspect = (GLfloat)w / (GLfloat)h;
+    win->setWidth(w);
+    win->setHeight(h);
+    if ((float)w < (float)h * fixed) {
+        max_h = w / fixed;
+        win->setAspect((float)w / h);
+        glViewport(0, (h - max_h) / 2, w, max_h);
+        glOrtho(-1.0 * fixed, 1.0 * fixed, -1.0, 1.0, -1.0, 1.0);
+    }
+    else {
+        max_w = fixed * h;
+        win->setAspect((float)w / h);
+        glViewport((w - max_w) / 2, 0, max_w, h);
+        glOrtho(-1.0 * fixed, 1.0 * fixed, -1.0, 1.0, -1.0, 1.0);
+    }
+    /*
+    win->setWidth(w);
+    win->setHeight(h);
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+
+    GLfloat wFactor = (GLfloat)w / 800.0;
+    GLfloat hFactor = (GLfloat)h / 500.0;
+
+    //GLfloat aspect = (GLfloat)w / (GLfloat)h;
+    GLfloat aspect = win->getAspect();
     if (w <= h) {
-        glOrtho(-1.0, 1.0, -1.0 / aspect, 1.0 / aspect, -1.0, 1.0);
+        glOrtho(-1.0, 1.0, -1.0 * aspect, 1.0 * aspect, -1.0, 1.0);
     }
     else {
         glOrtho(-1.0 * aspect, 1.0 * aspect, -1.0, 1.0, -1.0, 1.0);
     }
+    */
 }
 
 void display() {
@@ -42,7 +73,7 @@ int main(int argc, char** argv) {
     //Window init function
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-    glutInitWindowPosition(80, 80);
+    glutInitWindowPosition(550, 150);
     glutInitWindowSize(win->getWidth(), win->getHeight());
     glutCreateWindow("Spinning Square");
     glutReshapeFunc(reshape);
