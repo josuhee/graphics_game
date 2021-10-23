@@ -17,37 +17,16 @@ void reshape(GLint w, GLint h) {
 
     win->setWidth(w);
     win->setHeight(h);
+    win->setAspect((float)w / h);
     if ((float)w < (float)h * fixed) {
         max_h = w / fixed;
-        win->setAspect((float)w / h);
-        glViewport(0, (h - max_h) / 2, w, max_h);
-        glOrtho(-1.0 * fixed, 1.0 * fixed, -1.0, 1.0, -1.0, 1.0);
+        glViewport(0, (GLint)(h - max_h) / 2, w, (GLsizei)max_h);
     }
     else {
         max_w = fixed * h;
-        win->setAspect((float)w / h);
-        glViewport((w - max_w) / 2, 0, max_w, h);
-        glOrtho(-1.0 * fixed, 1.0 * fixed, -1.0, 1.0, -1.0, 1.0);
+        glViewport((GLint)(w - max_w) / 2, 0, (GLsizei)max_w, h);
     }
-    /*
-    win->setWidth(w);
-    win->setHeight(h);
-    glViewport(0, 0, w, h);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    GLfloat wFactor = (GLfloat)w / 800.0;
-    GLfloat hFactor = (GLfloat)h / 500.0;
-
-    //GLfloat aspect = (GLfloat)w / (GLfloat)h;
-    GLfloat aspect = win->getAspect();
-    if (w <= h) {
-        glOrtho(-1.0, 1.0, -1.0 * aspect, 1.0 * aspect, -1.0, 1.0);
-    }
-    else {
-        glOrtho(-1.0 * aspect, 1.0 * aspect, -1.0, 1.0, -1.0, 1.0);
-    }
-    */
+    glOrtho(-1.0 * fixed, 1.0 * fixed, -1.0, 1.0, -1.0, 1.0);
 }
 
 void display() {

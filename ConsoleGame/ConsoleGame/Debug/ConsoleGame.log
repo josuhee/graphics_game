@@ -1,9 +1,2 @@
 ﻿  mouseEvent.cpp
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\window.h(7,8): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(12,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(13,14): warning C4244: '초기화 중': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(55,48): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(56,58): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(59,48): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Github\graphics_game\ConsoleGame\ConsoleGame\mouseEvent.cpp(60,29): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   ConsoleGame.vcxproj -> D:\Github\graphics_game\ConsoleGame\Debug\ConsoleGame.exe

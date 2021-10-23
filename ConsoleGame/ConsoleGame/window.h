@@ -4,7 +4,7 @@
 class Window
 {
 private:
-	Window() :w(800), h(500), mode(1), fixed(8.0 / 5.0), aspect(800.0 / 500.0) {};
+	Window() :w(800), h(500), mode(1), fixed(1.6f), aspect(1.6f) {};
 	int w;
 	int h;
 	int mode;

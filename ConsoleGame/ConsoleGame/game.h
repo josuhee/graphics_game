@@ -11,7 +11,9 @@
 # include <cstdlib>
 # include <cmath>
 # include <stdio.h>
+# include <vector>
 # include "font.h"
+using namespace std;
 
 /*==========page===========*/
 GLvoid		startPage();
