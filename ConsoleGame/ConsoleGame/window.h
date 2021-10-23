@@ -37,6 +37,9 @@ public:
 	void setHeight(int h) {
 		this->h = h;
 	}
+	void setMode(int mode) {
+		this->mode = mode;
+	}
 	void setAspect(float aspect) {
 		this->aspect = aspect;
 	}

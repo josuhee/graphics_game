@@ -142,9 +142,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleGame.cpp" />
+    <ClCompile Include="gamePage.cpp" />
     <ClCompile Include="keyEvent.cpp" />
     <ClCompile Include="mouseEvent.cpp" />
-    <ClCompile Include="printText.cpp" />
+    <ClCompile Include="draw_utils.cpp" />
     <ClCompile Include="startPage.cpp" />
     <ClCompile Include="timer.cpp" />
   </ItemGroup>

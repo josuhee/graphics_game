@@ -1,9 +1,7 @@
 ﻿#include "game.h"
 #include "window.h"
 
-static int num = 1;
-GLfloat	currentAngleOfRotation = 0.0;
-GLfloat	cubeAngleRotation = 0.0;
+GLfloat	cubeAngleRotation = 0.0f;
 
 void reshape(GLint w, GLint h) {
     Window* win = Window::getInstance();
@@ -30,17 +28,19 @@ void reshape(GLint w, GLint h) {
 }
 
 void display() {
+    Window* win = Window::getInstance();
+
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity(); //행렬초기화
 
     Font info{ -0.5, 0.0, 0.0, 300.0, 10.0 };
 
-    if (num == 1)
+    if (win->getMode() == 1)
         startPage();
     else
     {
-        glPrint("Bye", info);
+        gamePage();
     }
     glutSwapBuffers();
 }

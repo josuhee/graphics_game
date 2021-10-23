@@ -2,7 +2,7 @@
 #include "window.h"
 
 //윈도우 좌표를 opengl 좌표로 변경해주는 함수
-static pair<float, float> getPoint(int x, int y) {
+static pair<float, float>   getPoint(int x, int y) {
     pair<float, float> result;
     Window* win = Window::getInstance();
 
@@ -33,17 +33,21 @@ void mouse(int button, int state, int x, int y) {
     p = getPoint(x, y);
 
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        if (p.first >= -0.3 && p.first <= 0.8)
+        if (win->getMode() == 1)
         {
-            if (p.second >= -0.35 && p.second <= -0.05)
+            if (p.first >= -0.3 && p.first <= 0.8)
             {
-                //go game page
-            }
-            if (p.second >= -0.75 && p.second <= -0.45)
-            {
-                //End of the program
-                printf("\033[32mExit the Game\033[0m\n");
-                exit(0);
+                if (p.second >= -0.35 && p.second <= -0.05)
+                {
+                    win->setMode(2);
+                    //go game page
+                }
+                if (p.second >= -0.75 && p.second <= -0.45)
+                {
+                    //End of the program
+                    printf("\033[32mExit the Game\033[0m\n");
+                    exit(0);
+                }
             }
         }
     }
@@ -68,6 +72,7 @@ void hover_mouse(int x, int y)
 
     printf("%.1f %.1f\n", p.first, p.second);
 
+    //Start Page
     if (win->getMode() == 1)
     {
         if (p.first >= -0.3 && p.first <= 0.8)

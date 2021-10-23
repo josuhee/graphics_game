@@ -21,7 +21,7 @@
     <ClCompile Include="keyEvent.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="printText.cpp">
+    <ClCompile Include="draw_utils.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="mouseEvent.cpp">
@@ -31,6 +31,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="startPage.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="gamePage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
