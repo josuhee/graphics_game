@@ -47,5 +47,19 @@
     <ClInclude Include="font.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="image\block.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="image\block.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="image\wall.jpg">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
 </Project>

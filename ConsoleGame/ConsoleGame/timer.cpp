@@ -1,15 +1,22 @@
 #include "game.h"
+#include "window.h"
 
 extern GLfloat cubeAngleRotation;
 
 void cubeTimer(int v) {
-    cubeAngleRotation += 1.0;
-    if (cubeAngleRotation > 360.0) {
-        cubeAngleRotation -= 360.0;
-    }
-    glutPostRedisplay();
+    Window* win = Window::getInstance();
 
-    glutTimerFunc(10, cubeTimer, v);
+    if (win->getMode() == 1)
+    {
+        cubeAngleRotation += 1.0;
+        if (cubeAngleRotation > 360.0) {
+            cubeAngleRotation -= 360.0;
+        }
+        glutPostRedisplay();
+
+        glutTimerFunc(7, cubeTimer, v);
+
+    }
 }
 
 /*

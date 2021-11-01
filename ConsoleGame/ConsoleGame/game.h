@@ -2,12 +2,13 @@
 #ifndef GAME_H
 # define GAME_H
 
-#include <Windows.h>
-#include <stdarg.h>
+# include <Windows.h>
+# include <stdarg.h>
 
 # include <GL/glut.h>
 # include <GL/GL.h>
 # include <GL/GLU.h>
+
 # include <cstdlib>
 # include <cmath>
 # include <stdio.h>
@@ -36,6 +37,8 @@ void			processSpcialKey(int key, int x, int y);
 GLvoid		glPrint(const char* text, Font info);
 void			drawCude(float x, float y, bool flag, float degree);
 void			drawRect(t_point_f p1, t_point_f p2);
+void			init_image(void);
+void			draw_img(int n, t_point_f p1, t_point_f p2);
 
 /*==========timer===========*/
 void			cubeTimer(int v);

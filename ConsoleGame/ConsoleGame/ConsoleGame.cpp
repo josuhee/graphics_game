@@ -34,12 +34,14 @@ void display() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity(); //행렬초기화
 
-    Font info{ -0.5, 0.0, 0.0, 300.0, 10.0 };
-
     if (win->getMode() == 1)
+    {
+        glBindTexture(GL_TEXTURE_2D, 0);
         startPage();
+    }
     else
     {
+        glBindTexture(GL_TEXTURE_2D, 0);
         gamePage();
     }
     glutSwapBuffers();
@@ -54,7 +56,7 @@ int main(int argc, char** argv) {
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowPosition(550, 150);
     glutInitWindowSize(win->getWidth(), win->getHeight());
-    glutCreateWindow("Spinning Square");
+    glutCreateWindow("Game");
     glutReshapeFunc(reshape);
     glutDisplayFunc(display);
     
@@ -66,7 +68,7 @@ int main(int argc, char** argv) {
     glutSpecialFunc(processSpcialKey);
     glutMouseFunc(mouse);
     glutPassiveMotionFunc(hover_mouse);
-    
+   
     //loop
     glutMainLoop();
     return (0);
