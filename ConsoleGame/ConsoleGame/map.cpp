@@ -18,10 +18,12 @@ void create_map()
 	strcpy_s(info->map[5], 11, "1000000001");
 	strcpy_s(info->map[6], 11, "1000011001");
 	strcpy_s(info->map[7], 11, "1010000001");
-	strcpy_s(info->map[8], 11, "1010000001");
+	strcpy_s(info->map[8], 11, "1P10000001");
 	strcpy_s(info->map[9], 11, "1111111111");
 
 }
+
+extern int player_idx;
 
 void draw_map()
 {
@@ -38,6 +40,16 @@ void draw_map()
 				nx = x * 0.2f - 1.0f;
 				ny = 1.0f - y * 0.2f;
 				draw_img(0, { nx, ny - 0.2f }, { nx + 0.2f, ny });
+			}
+			//player
+			if (info->map[y][x] == 'P')
+			{
+				nx = x * 0.2f - 1.0f;
+				ny = 1.0f - y * 0.2f;
+				glEnable(GL_BLEND);
+				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+				draw_img_player(player_idx, { nx, ny - 0.2f }, { nx + 0.2f, ny });
+				glDisable(GL_BLEND);
 			}
 		}
 	}

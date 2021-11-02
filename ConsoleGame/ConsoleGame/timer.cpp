@@ -2,8 +2,19 @@
 #include "window.h"
 
 extern GLfloat cubeAngleRotation;
+extern int player_idx;
 
-void cubeTimer(int v) {
+void playerTimer(int v)
+{
+    player_idx++;
+    if (player_idx == 6)
+        player_idx -= 6;
+    glutPostRedisplay();
+    glutTimerFunc(100, playerTimer, v);
+}
+
+void cubeTimer(int v)
+{
     Window* win = Window::getInstance();
 
     if (win->getMode() == 1)
@@ -15,13 +26,9 @@ void cubeTimer(int v) {
         glutPostRedisplay();
 
         glutTimerFunc(7, cubeTimer, v);
-
+    }
+    if (win->getMode() == 2)
+    {
+        glutTimerFunc(0, playerTimer, v);
     }
 }
-
-/*
-timer 관리 아이디어
-헤더 정보를 끌어와서 검사하기??
-
-
-*/

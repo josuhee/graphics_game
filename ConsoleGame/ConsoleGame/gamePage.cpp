@@ -1,6 +1,7 @@
 #include "game.h"
 
 bool keyPress[4] = { false, };
+int player_idx = 0;
 
 static GLvoid paint_button()
 {
@@ -25,6 +26,7 @@ static GLvoid paint_button()
 		drawRect({ 1.23f, -0.2f }, { 1.37f, -0.07f });
 	}
 }
+
 
 GLvoid gamePage()
 {

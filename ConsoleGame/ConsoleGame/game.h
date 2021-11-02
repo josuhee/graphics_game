@@ -48,6 +48,7 @@ void			drawCude(float x, float y, bool flag, float degree);
 void			drawRect(t_point_f p1, t_point_f p2);
 void			init_image(void);
 void			draw_img(int n, t_point_f p1, t_point_f p2);
+void			draw_img_player(int n, t_point_f p1, t_point_f p2);
 
 /*==========timer===========*/
 void			cubeTimer(int v);
