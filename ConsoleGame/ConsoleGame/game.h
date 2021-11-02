@@ -40,6 +40,7 @@ void			hover_mouse(int x, int y);
 /*==========key event========*/
 void			processNormalKey(unsigned char key, int x, int y);
 void			processSpcialKey(int key, int x, int y);
+void			processSpecialKeyUp(int key, int x, int y);
 
 /*==========draw utils========*/
 GLvoid		glPrint(const char* text, Font info);
