@@ -1,11 +1,13 @@
 #include "game.h"
 
+//Singleton Model
 t_map* get_map_info()
 {
 	static t_map info;
 	return &info;
 }
 
+//Map Init
 void create_map()
 {
 	t_map* info = get_map_info();
@@ -24,7 +26,9 @@ void create_map()
 }
 
 extern int player_idx;
+extern float dx, dy;
 
+//paint map
 void draw_map()
 {
 	t_map* info = get_map_info();
@@ -44,11 +48,13 @@ void draw_map()
 			//player
 			if (info->map[y][x] == 'P')
 			{
+				info->player_x = x;
+				info->player_y = y;
 				nx = x * 0.2f - 1.0f;
 				ny = 1.0f - y * 0.2f;
 				glEnable(GL_BLEND);
 				glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-				draw_img_player(player_idx, { nx, ny - 0.2f }, { nx + 0.2f, ny });
+				draw_img_player(player_idx, { nx + dx, ny - 0.2f + dy}, { nx + 0.2f + dx, ny + dy});
 				glDisable(GL_BLEND);
 			}
 		}
