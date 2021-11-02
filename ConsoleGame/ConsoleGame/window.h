@@ -16,6 +16,7 @@ public:
 		static Window instance;
 		return &instance;
 	}
+	~Window(){}
 	int getWidth() {
 		return w;
 	}

@@ -37,14 +37,15 @@ void mouse(int button, int state, int x, int y) {
         {
             if (p.first >= -0.3 && p.first <= 0.8)
             {
+                //go game page
                 if (p.second >= -0.35 && p.second <= -0.05)
                 {
                     win->setMode(2);
-                    //go game page
+                    create_map();
                 }
+                //End of the program
                 if (p.second >= -0.75 && p.second <= -0.45)
                 {
-                    //End of the program
                     printf("\033[32mExit the Game\033[0m\n");
                     exit(0);
                 }

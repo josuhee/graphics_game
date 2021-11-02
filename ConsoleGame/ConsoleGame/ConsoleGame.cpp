@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
     glutInitWindowPosition(550, 150);
     glutInitWindowSize(win->getWidth(), win->getHeight());
     glutCreateWindow("Game");
+    init_image();
     glutReshapeFunc(reshape);
     glutDisplayFunc(display);
     

@@ -10,6 +10,7 @@
 # include <GL/GLU.h>
 
 # include <cstdlib>
+# include <cstring>
 # include <cmath>
 # include <stdio.h>
 # include <vector>
@@ -20,6 +21,13 @@ typedef struct s_point_f {
 	float x;
 	float y;
 }t_point_f;
+
+typedef struct s_map
+{
+	char map[10][11];
+	int player_x;
+	int player_y;
+}t_map;
 
 /*==========page===========*/
 GLvoid		startPage();
@@ -43,5 +51,9 @@ void			draw_img(int n, t_point_f p1, t_point_f p2);
 /*==========timer===========*/
 void			cubeTimer(int v);
 
+/*==========map============*/
+t_map*		get_map_info();
+void			create_map();
+void			draw_map();
 
 #endif

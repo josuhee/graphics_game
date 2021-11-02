@@ -143,7 +143,9 @@
   <ItemGroup>
     <ClCompile Include="ConsoleGame.cpp" />
     <ClCompile Include="gamePage.cpp" />
+    <ClCompile Include="image.cpp" />
     <ClCompile Include="keyEvent.cpp" />
+    <ClCompile Include="map.cpp" />
     <ClCompile Include="mouseEvent.cpp" />
     <ClCompile Include="draw_utils.cpp" />
     <ClCompile Include="startPage.cpp" />
@@ -152,7 +154,6 @@
   <ItemGroup>
     <ClInclude Include="font.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="image.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
