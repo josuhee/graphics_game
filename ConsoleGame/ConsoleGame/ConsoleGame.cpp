@@ -1,7 +1,7 @@
 ﻿#include "game.h"
 #include "window.h"
 
-GLfloat	cubeAngleRotation = 0.0f;
+//GLfloat	cubeAngleRotation = 0.0f;
 
 void reshape(GLint w, GLint h) {
     Window* win = Window::getInstance();
@@ -39,10 +39,15 @@ void display() {
         glBindTexture(GL_TEXTURE_2D, 0);
         startPage();
     }
-    else
+    else if (win->getMode() == 2)
     {
         glBindTexture(GL_TEXTURE_2D, 0);
         gamePage();
+    }
+    else
+    {
+        glBindTexture(GL_TEXTURE_2D, 0);
+        endPage();
     }
     glutSwapBuffers();
 }

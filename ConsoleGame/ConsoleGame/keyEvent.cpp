@@ -29,12 +29,15 @@ static void checkItem(int x, int y)
 
 static void checkExit(int x, int y)
 {
+	Window* win = Window::getInstance();
 	t_map* info = get_map_info();
 
 	if (info->map[y][x] != 'E') return;
 
 	//game clear
 	printf("game clear\n");
+	win->setMode(3);
+	info->clear = true;
 }
 
 void upTimer(int v)

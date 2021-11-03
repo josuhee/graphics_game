@@ -142,6 +142,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleGame.cpp" />
+    <ClCompile Include="endPage.cpp" />
     <ClCompile Include="gamePage.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="keyEvent.cpp" />

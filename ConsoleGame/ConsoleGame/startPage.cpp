@@ -1,7 +1,7 @@
 #include "game.h"
 
-extern GLfloat cubeAngleRotation;
-bool            solid[2] = { false, false };
+GLfloat cubeAngleRotation;
+bool    solid[2] = { false, false };
 
 GLvoid          startPage()
 {

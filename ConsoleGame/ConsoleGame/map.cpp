@@ -13,7 +13,8 @@ void		create_map()
 {
 	srand((unsigned int)time(NULL));
 	t_map* info = get_map_info();
-	
+	info->clear = false;
+
 	strcpy_s(info->map[0], 11, "1111111111");
 	strcpy_s(info->map[1], 11, "10000000A1");
 	strcpy_s(info->map[2], 11, "1010000111");

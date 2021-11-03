@@ -33,15 +33,20 @@ void mouse(int button, int state, int x, int y) {
     p = getPoint(x, y);
 
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
-        if (win->getMode() == 1)
+        if (win->getMode() == 1 || win->getMode() == 3)
         {
             if (p.first >= -0.3 && p.first <= 0.8)
             {
                 //go game page
                 if (p.second >= -0.35 && p.second <= -0.05)
                 {
-                    win->setMode(2);
-                    create_map();
+                    if (win->getMode() == 1)
+                    {
+                        win->setMode(2);
+                        create_map();
+                    }
+                    else
+                        win->setMode(1);
                 }
                 //End of the program
                 if (p.second >= -0.75 && p.second <= -0.45)
@@ -62,6 +67,7 @@ void mouse(int button, int state, int x, int y) {
 }
 
 extern bool solid[2];
+extern bool solid_e[2];
 
 //Mouse hover Event
 void hover_mouse(int x, int y)
@@ -89,5 +95,23 @@ void hover_mouse(int x, int y)
         }
         else
             solid[0] = solid[1] = false;
+    }
+
+    //End Page
+    if (win->getMode() == 3)
+    {
+        if (p.first >= -0.3 && p.first <= 0.8)
+        {
+            if (p.second >= -0.35 && p.second <= -0.05)
+                solid_e[0] = true;
+            else
+                solid_e[0] = false;
+            if (p.second >= -0.75 && p.second <= -0.45)
+                solid_e[1] = true;
+            else
+                solid_e[1] = false;
+        }
+        else
+            solid_e[0] = solid_e[1] = false;
     }
 }

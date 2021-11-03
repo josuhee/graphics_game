@@ -28,11 +28,13 @@ typedef struct s_map
 	int player_x;
 	int player_y;
 	int item_cnt;
+	bool clear;
 }t_map;
 
 /*==========page===========*/
 GLvoid		startPage();
 GLvoid		gamePage();
+GLvoid		endPage();
 
 /*==========monuse event=====*/
 void			mouse(int button, int state, int x, int y);
