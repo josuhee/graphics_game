@@ -3,6 +3,7 @@
 bool keyPress[4] = { false, };
 int player_idx = 0;
 int item_idx = 0;
+int enemy_idx = 0;
 
 static GLvoid paint_button()
 {

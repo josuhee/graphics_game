@@ -10,6 +10,31 @@ static void checkItem(int x, int y)
 
 	if (info->map[y][x] == 'C')
 		info->item_cnt -= 1;
+	if (info->item_cnt == 0)
+	{
+		info->item_cnt = -1;
+		int i, j;
+		while (1)
+		{
+			i = rand() % 8 + 1;
+			j = rand() % 8 + 1;
+			if (info->map[i][j] == '0')
+			{
+				info->map[i][j] = 'E';
+				break;
+			}
+		}
+	}
+}
+
+static void checkExit(int x, int y)
+{
+	t_map* info = get_map_info();
+
+	if (info->map[y][x] != 'E') return;
+
+	//game clear
+	printf("game clear\n");
 }
 
 void upTimer(int v)
@@ -21,6 +46,7 @@ void upTimer(int v)
 
 	if (v == 5) {
 		checkItem(x, y - 1);
+		checkExit(x, y - 1);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y - 1][x] = 'P';
@@ -44,6 +70,7 @@ void downTimer(int v)
 
 	if (v == 5) {
 		checkItem(x, y + 1);
+		checkExit(x, y + 1);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y + 1][x] = 'P';
@@ -66,6 +93,7 @@ void leftTimer(int v)
 
 	if (v == 5) {
 		checkItem(x - 1, y);
+		checkExit(x - 1, y);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y][x - 1] = 'P';
@@ -88,6 +116,7 @@ void rightTimer(int v)
 
 	if (v == 5) {
 		checkItem(x + 1, y);
+		checkExit(x + 1, y);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y][x + 1] = 'P';

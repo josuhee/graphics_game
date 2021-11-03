@@ -2,8 +2,11 @@
 #include "window.h"
 
 extern GLfloat cubeAngleRotation;
+
+//origin at gamePage.cpp
 extern int player_idx;
 extern int item_idx;
+extern int enemy_idx;
 
 void playerTimer(int v)
 {
@@ -28,6 +31,15 @@ void itemTimer(int v)
     glutTimerFunc(100, itemTimer, v);
 }
 
+void enemyTimer(int v)
+{
+    enemy_idx++;
+    if (enemy_idx == 4)
+        enemy_idx -= 4;
+    glutPostRedisplay();
+    glutTimerFunc(100, enemyTimer, v);
+}
+
 void cubeTimer(int v)
 {
     Window* win = Window::getInstance();
@@ -46,5 +58,6 @@ void cubeTimer(int v)
     {
         glutTimerFunc(0, playerTimer, v);
         glutTimerFunc(0, itemTimer, v);
+        glutTimerFunc(0, enemyTimer, v);
     }
 }

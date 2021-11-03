@@ -51,6 +51,7 @@ void			init_image(void);
 void			draw_img(int n, t_point_f p1, t_point_f p2);
 void			draw_img_player(int n, t_point_f p1, t_point_f p2);
 void			draw_img_item(int n, t_point_f p1, t_point_f p2);
+void			draw_img_enemy(int n, t_point_f p1, t_point_f p2);
 
 /*==========timer===========*/
 void			cubeTimer(int v);

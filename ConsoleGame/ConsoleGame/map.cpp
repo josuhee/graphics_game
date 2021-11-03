@@ -15,7 +15,7 @@ void		create_map()
 	t_map* info = get_map_info();
 	
 	strcpy_s(info->map[0], 11, "1111111111");
-	strcpy_s(info->map[1], 11, "1000000001");
+	strcpy_s(info->map[1], 11, "10000000A1");
 	strcpy_s(info->map[2], 11, "1010000111");
 	strcpy_s(info->map[3], 11, "1000100001");
 	strcpy_s(info->map[4], 11, "1110001001");
@@ -32,8 +32,8 @@ void		create_map()
 	{
 		while (1)
 		{
-			x = rand() % 8 + 1;
-			y = rand() % 8 + 1;
+			x = rand() % 8 + 1; //1 ~ 8
+			y = rand() % 8 + 1; // 1 ~ 8
 			if (info->map[x][y] == '0')
 			{
 				info->map[x][y] = 'C';
@@ -43,8 +43,12 @@ void		create_map()
 	}
 }
 
+//origin at gamePage.cpp
 extern int	player_idx;
 extern int	item_idx;
+extern int	enemy_idx;
+
+//origin at keyEvent.cpp
 extern float	dx, dy;
 
 //paint map
@@ -79,6 +83,20 @@ void draw_map()
 				nx = x * 0.2f - 1.0f;
 				ny = 1.0f - y * 0.2f;
 				draw_img_item(item_idx, { nx, ny - 0.2f }, { nx + 0.2f, ny });
+			}
+			//enemy
+			if (info->map[y][x] == 'A')
+			{
+				nx = x * 0.2f - 1.0f;
+				ny = 1.0f - y * 0.2f;
+				draw_img_enemy(enemy_idx, { nx, ny - 0.2f }, { nx + 0.2f, ny });
+			}
+			//exit
+			if (info->map[y][x] == 'E')
+			{
+				nx = x * 0.2f - 1.0f;
+				ny = 1.0f - y * 0.2f;
+				draw_img(1, { nx, ny - 0.2f }, { nx + 0.2f, ny });
 			}
 		}
 	}
