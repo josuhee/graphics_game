@@ -27,6 +27,7 @@ typedef struct s_map
 	char map[10][11];
 	int player_x;
 	int player_y;
+	int item_cnt;
 }t_map;
 
 /*==========page===========*/
@@ -49,6 +50,7 @@ void			drawRect(t_point_f p1, t_point_f p2);
 void			init_image(void);
 void			draw_img(int n, t_point_f p1, t_point_f p2);
 void			draw_img_player(int n, t_point_f p1, t_point_f p2);
+void			draw_img_item(int n, t_point_f p1, t_point_f p2);
 
 /*==========timer===========*/
 void			cubeTimer(int v);

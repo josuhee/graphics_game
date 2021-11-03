@@ -3,6 +3,7 @@
 
 extern GLfloat cubeAngleRotation;
 extern int player_idx;
+extern int item_idx;
 
 void playerTimer(int v)
 {
@@ -11,6 +12,20 @@ void playerTimer(int v)
         player_idx -= 6;
     glutPostRedisplay();
     glutTimerFunc(100, playerTimer, v);
+}
+
+void itemTimer(int v)
+{
+    t_map* info = get_map_info();
+
+    if (info->item_cnt == 0)
+        return;
+
+    item_idx++;
+    if (item_idx == 8)
+        item_idx -= 8;
+    glutPostRedisplay();
+    glutTimerFunc(100, itemTimer, v);
 }
 
 void cubeTimer(int v)
@@ -30,5 +45,6 @@ void cubeTimer(int v)
     if (win->getMode() == 2)
     {
         glutTimerFunc(0, playerTimer, v);
+        glutTimerFunc(0, itemTimer, v);
     }
 }

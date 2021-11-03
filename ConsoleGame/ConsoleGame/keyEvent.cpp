@@ -4,6 +4,14 @@
 bool mvFlag = true;
 float dx = 0.0f, dy = 0.0f;
 
+static void checkItem(int x, int y)
+{
+	t_map* info = get_map_info();
+
+	if (info->map[y][x] == 'C')
+		info->item_cnt -= 1;
+}
+
 void upTimer(int v)
 {
 	t_map* info = get_map_info();
@@ -12,6 +20,7 @@ void upTimer(int v)
 	int y = info->player_y;
 
 	if (v == 5) {
+		checkItem(x, y - 1);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y - 1][x] = 'P';
@@ -34,6 +43,7 @@ void downTimer(int v)
 	int y = info->player_y;
 
 	if (v == 5) {
+		checkItem(x, y + 1);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y + 1][x] = 'P';
@@ -55,6 +65,7 @@ void leftTimer(int v)
 	int y = info->player_y;
 
 	if (v == 5) {
+		checkItem(x - 1, y);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y][x - 1] = 'P';
@@ -76,6 +87,7 @@ void rightTimer(int v)
 	int y = info->player_y;
 
 	if (v == 5) {
+		checkItem(x + 1, y);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y][x + 1] = 'P';
