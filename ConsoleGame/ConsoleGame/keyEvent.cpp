@@ -222,19 +222,15 @@ void processSpecialKeyUp(int key, int x, int y)
 		{
 		case GLUT_KEY_UP:
 			keyPress[2] = false;
-			printf("up free\n");
 			break;
 		case GLUT_KEY_DOWN:
 			keyPress[3] = false;
-			printf("down free\n");
 			break;
 		case GLUT_KEY_LEFT:
 			keyPress[0] = false;
-			printf("left free\n");
 			break;
 		case GLUT_KEY_RIGHT:
 			keyPress[1] = false;
-			printf("right free\n");
 			break;
 		}
 	}

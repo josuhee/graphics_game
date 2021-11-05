@@ -93,15 +93,14 @@ void enemyMoveUtilTimer(int v)
         info->enemy_x = p.first;
         info->enemy_y = p.second;
         flag = true;
-        printf("\n");
         return;
     }
     flag = false;
     e_dx = (p.first - info->enemy_x) * 0.04f * v;
     e_dy = (info->enemy_y - p.second) * 0.04f * v;
-    printf("%d %d\n", p.first - info->enemy_x, info->enemy_y - p.second);
     glutPostRedisplay();
-    glutTimerFunc(100, enemyMoveUtilTimer, v + 1);
+    //적의 속도 조절하기
+    glutTimerFunc(80, enemyMoveUtilTimer, v + 1);
 }
 
 void enemyMoveTimer(int v)

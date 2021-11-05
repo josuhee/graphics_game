@@ -1,4 +1,5 @@
 #include "game.h"
+#include "window.h"
 #include <time.h>
 
 //Singleton Model
@@ -60,7 +61,9 @@ extern float e_dx, e_dy;
 //paint map
 void draw_map()
 {
+	Window* win = Window::getInstance();
 	t_map* info = get_map_info();
+	t_point_f player[2] = { {0.0f,0.0f},{0.0f,0.0f} };
 	float nx, ny;
 
 	for (int y = 0; y < 10; y++)
@@ -81,6 +84,8 @@ void draw_map()
 				info->player_y = y;
 				nx = x * 0.2f - 1.0f;
 				ny = 1.0f - y * 0.2f;
+				player[0] = { nx + dx, ny - 0.2f + dy };
+				player[1] = { nx + 0.2f + dx, ny + dy };
 				draw_img_player(player_idx, { nx + dx, ny - 0.2f + dy}, { nx + 0.2f + dx, ny + dy});
 			}
 			//item
@@ -103,4 +108,32 @@ void draw_map()
 	nx = info->enemy_x * 0.2f - 1.0f;
 	ny = 1.0f - info->enemy_y * 0.2f;
 	draw_img_enemy(enemy_idx, { nx + e_dx, ny - 0.2f + e_dy }, { nx + 0.2f + e_dx, ny + e_dy });
+
+	//∏∂¡÷√∆¿ª ∂ß,,,
+	t_point_f enemy[2];
+	enemy[0] = { nx + e_dx, ny - 0.2f + e_dy };
+	enemy[1] = { nx + 0.2f + e_dx, ny + e_dy };
+
+	//¡¬øÏ
+	if ((player[0].x < enemy[0].x && enemy[0].x < player[1].x) || (player[0].x < enemy[1].x && enemy[1].x < player[1].x))
+	{
+		if (player[0].y == enemy[0].y && player[1].y == enemy[1].y)
+		{
+			//printf("game over LR\n");
+			win->setMode(3);
+			//Sleep(1000);
+		}
+	}
+
+	//ªÛ«œ
+	if ((player[0].y < enemy[0].y && enemy[0].y < player[1].y) || (player[0].y < enemy[1].y && enemy[1].y < player[1].y))
+	{
+		if (player[0].x == enemy[0].x && player[1].x == enemy[1].x)
+		{
+			//printf("game over UD\n");
+			win->setMode(3);
+			//Sleep(1000);
+		}
+	}
+	
 }
