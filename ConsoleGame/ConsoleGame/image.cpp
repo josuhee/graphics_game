@@ -76,9 +76,10 @@ void init_image(void)
 {
     stbi_set_flip_vertically_on_load(true);
     glEnable(GL_TEXTURE_2D);
-    glGenTextures(2, &texID[0]);
+    glGenTextures(3, &texID[0]);
     init_image_util((char*)"image/else/block.png", 0);
     init_image_util((char*)"image/else/exit.png", 1);
+    init_image_util((char*)"image/else/sample.png", 2);
     
     glEnable(GL_TEXTURE_2D);
     glGenTextures(6, &playerID[0]);

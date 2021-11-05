@@ -40,6 +40,18 @@ static void checkExit(int x, int y)
 	info->clear = true;
 }
 
+static void checkEnemy(int x, int y)
+{
+	Window* win = Window::getInstance();
+	t_map* info = get_map_info();
+
+	if (info->map[y][x] != 'A') return;
+
+	//game over
+	printf("game clear\n");
+	win->setMode(3);
+}
+
 void upTimer(int v)
 {
 	t_map* info = get_map_info();
@@ -50,6 +62,7 @@ void upTimer(int v)
 	if (v == 5) {
 		checkItem(x, y - 1);
 		checkExit(x, y - 1);
+		checkEnemy(x, y - 1);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y - 1][x] = 'P';
@@ -74,6 +87,7 @@ void downTimer(int v)
 	if (v == 5) {
 		checkItem(x, y + 1);
 		checkExit(x, y + 1);
+		checkEnemy(x, y + 1);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y + 1][x] = 'P';
@@ -97,6 +111,7 @@ void leftTimer(int v)
 	if (v == 5) {
 		checkItem(x - 1, y);
 		checkExit(x - 1, y);
+		checkEnemy(x - 1, y);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y][x - 1] = 'P';
@@ -120,6 +135,7 @@ void rightTimer(int v)
 	if (v == 5) {
 		checkItem(x + 1, y);
 		checkExit(x + 1, y);
+		checkEnemy(x + 1, y);
 		dx = dy = 0.0f;
 		info->map[y][x] = '0';
 		info->map[y][x + 1] = 'P';
@@ -177,22 +193,18 @@ void processSpcialKey(int key, int x, int y)
 		case GLUT_KEY_UP:
 			move_player(2, info->player_x, info->player_y - 1);
 			keyPress[2] = true;
-			printf("up\n");
 			break;
 		case GLUT_KEY_DOWN:
 			move_player(3, info->player_x, info->player_y +1);
 			keyPress[3] = true;
-			printf("down\n");
 			break;
 		case GLUT_KEY_LEFT:
 			move_player(0, info->player_x - 1, info->player_y);
 			keyPress[0] = true;
-			printf("left\n");
 			break;
 		case GLUT_KEY_RIGHT:
 			move_player(1, info->player_x + 1, info->player_y);
 			keyPress[1] = true;
-			printf("right\n");
 			break;
 		}
 	}

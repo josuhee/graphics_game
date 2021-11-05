@@ -9,14 +9,16 @@ GLvoid glPrint(const char* text, Font info)
     glTranslatef(info.getX(), info.getY(), info.getZ());
     glScalef(1 / size, 1 / size, 1 / size);
     /*
+    */
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glEnable(GL_LINE_SMOOTH);
-    */
-    //glLineWidth(info.getBold());//±½±â
+    glLineWidth(info.getBold());//±½±â
     for (int i = 0; text[i]; i++)
         glutStrokeCharacter(GLUT_STROKE_ROMAN, text[i]);
     glPopMatrix();
+    glDisable(GL_LINE_SMOOTH);
+    glDisable(GL_BLEND);
 }
 
 void     drawCude(float x, float y, bool flag, float degree)

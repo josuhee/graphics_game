@@ -41,10 +41,8 @@ GLvoid gamePage()
 	glColor4f((GLfloat)(122.0 / 255.0), (GLfloat)(8.0 / 255.0), (GLfloat)(8.0 / 255.0), (GLfloat)1.0);
 	drawRect({ 1.0f, -1.0f }, { 1.6f, 1.0f });
 
-	glColor4f(144.0f / 255.0f, 144.0f / 255.0f, 144.0f / 255.0f, 1.0f);
+	glColor4f(92.0f / 255.0f, 92.0f / 255.0f, 92.0f / 255.0f, 1.0f);
 	drawRect({ 1.1f, -0.07f }, { 1.5f, 0.07f });
-
-	glColor4f(144.0f / 255.0f, 144.0f / 255.0f, 144.0f / 255.0f, 1.0f);
 	drawRect({ 1.23f, -0.2f }, { 1.37f, 0.2f });
 
 	//draw_img(0, { -1.0f, -1.0f }, { -0.9f,-0.9f });
@@ -52,7 +50,7 @@ GLvoid gamePage()
 
 	paint_button();
 	
-	Font info{ -1.55f, -0.95f, 0.0f, 1000.0f, 10.0f };
+	Font info{ -1.55f, -0.95f, 0.0f, 1000.0f, 5.0f };
 	glColor4f(1.0, 1.0, 1.0, 1.0);
 	glPrint("JoSuhee", info);
 }

@@ -34,6 +34,7 @@ void display() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity(); //행렬초기화
 
+    glLineWidth(3.0f);
     if (win->getMode() == 1)
     {
         glBindTexture(GL_TEXTURE_2D, 0);

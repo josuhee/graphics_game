@@ -17,21 +17,21 @@ GLvoid          endPage()
     drawRect({ -0.3f, -0.45f }, { 0.8f, -0.75f });
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-    Font info{ -0.1f, -0.3f, 0.0f, 550.0f, 10.0f };
+    Font info{ -0.1f, -0.3f, 0.0f, 550.0f, 5.0f };
     glColor4f(0.5, 1.0, 1.0, 1.0);
     glPrint("HOME", info);
 
-    Font info2{ 0.0f, -0.7f, 0.0f, 550.0f, 10.0f };
+    Font info2{ 0.0f, -0.7f, 0.0f, 550.0f, 5.0f };
     glColor4f(0.5, 1.0, 1.0, 1.0);
     glPrint("EXIT", info2);
 
     t_map* map = get_map_info();
 
-    Font info3{ -0.7f, 0.3f, 0.0f, 250.0f, 10.0f };
+    Font info3{ -0.7f, 0.3f, 0.0f, 250.0f, 5.0f };
     glColor4f(1.0, 1.0, 1.0, 1.0);
     if (map->clear)
-        glPrint("Clear", info3);
+        glPrint("Game Clear", info3);
     else
-        glPrint("Over", info3);
+        glPrint("Game Over", info3);
 
 }

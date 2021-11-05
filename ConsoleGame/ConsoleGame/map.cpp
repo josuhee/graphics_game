@@ -83,7 +83,7 @@ void draw_map()
 			{
 				nx = x * 0.2f - 1.0f;
 				ny = 1.0f - y * 0.2f;
-				draw_img_item(item_idx, { nx, ny - 0.2f }, { nx + 0.2f, ny });
+				draw_img_item(item_idx, { nx + 0.05f, ny - 0.2f + 0.05f }, { nx + 0.2f - 0.05f, ny - 0.05f });
 			}
 			//enemy
 			if (info->map[y][x] == 'A')
