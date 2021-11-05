@@ -14,6 +14,9 @@ public:
 	Font(float x_, float y_, float z_, float size_, float bold_) : x(x_), y(y_), z(z_), size(size_), bold(bold_)
 	{}
 	~Font(){}
+	void setX(float x) {
+		this->x = x;
+	}
 	float getX() {
 		return x;
 	}

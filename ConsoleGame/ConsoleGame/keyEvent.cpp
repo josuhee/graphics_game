@@ -216,23 +216,20 @@ void processSpecialKeyUp(int key, int x, int y)
 {
 	Window* win = Window::getInstance();
 
-	if (win->getMode() == 2)
+	switch (key)
 	{
-		switch (key)
-		{
-		case GLUT_KEY_UP:
-			keyPress[2] = false;
-			break;
-		case GLUT_KEY_DOWN:
-			keyPress[3] = false;
-			break;
-		case GLUT_KEY_LEFT:
-			keyPress[0] = false;
-			break;
-		case GLUT_KEY_RIGHT:
-			keyPress[1] = false;
-			break;
-		}
+	case GLUT_KEY_UP:
+		keyPress[2] = false;
+		break;
+	case GLUT_KEY_DOWN:
+		keyPress[3] = false;
+		break;
+	case GLUT_KEY_LEFT:
+		keyPress[0] = false;
+		break;
+	case GLUT_KEY_RIGHT:
+		keyPress[1] = false;
+		break;
 	}
 	glutPostRedisplay();
 }

@@ -8,8 +8,6 @@ GLvoid glPrint(const char* text, Font info)
     glPushMatrix();
     glTranslatef(info.getX(), info.getY(), info.getZ());
     glScalef(1 / size, 1 / size, 1 / size);
-    /*
-    */
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
     glEnable(GL_LINE_SMOOTH);
@@ -25,7 +23,7 @@ void     drawCude(float x, float y, bool flag, float degree)
 {
     if (flag)
     {
-        glColor4f((GLfloat)(248 / 255.0), (GLfloat)(94 / 255.0), (GLfloat)(252 / 255.0), (GLfloat)0.5);
+        glColor4f(253.0f / 255.0f, 166.0f / 255.0f, 127.0f / 255.0f, 0.1f);
         glPushMatrix();
         glTranslatef(x, y, 0.0);
         glRotatef(degree, 1.0f, 1.0f, 1.0f);
@@ -33,7 +31,7 @@ void     drawCude(float x, float y, bool flag, float degree)
         glPopMatrix();
     }
 
-    glColor4f((GLfloat)(157 / 255.0), (GLfloat)(7 / 255.0), (GLfloat)(161 / 255.0), (GLfloat)1.0);
+    glColor4f(88.0f / 255.0f, 14.0f / 255.0f, 8.0f / 255.0f, 1.0f);
     glPushMatrix();
     glTranslatef(x, y, 0.0);
     //glLineWidth(4.0);//±½±â

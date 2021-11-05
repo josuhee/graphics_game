@@ -25,6 +25,8 @@ static pair<float, float>   getPoint(int x, int y) {
     return result;
 }
 
+extern bool startFlag;
+
 //Mouse Click Event
 void mouse(int button, int state, int x, int y) {
     Window* win = Window::getInstance();
@@ -45,8 +47,11 @@ void mouse(int button, int state, int x, int y) {
                         win->setMode(2);
                         create_map();
                     }
-                    else
+                    else if (win->getMode() == 3)
+                    {
+                        startFlag = true;
                         win->setMode(1);
+                    }
                 }
                 //End of the program
                 if (p.second >= -0.75 && p.second <= -0.45)

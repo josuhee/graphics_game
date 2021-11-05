@@ -1,9 +1,6 @@
 #include "game.h"
 
-bool keyPress[4] = { false, };
-int player_idx = 0;
-int item_idx = 0;
-int enemy_idx = 0;
+bool keyPress[4] = { false,};
 
 static GLvoid paint_button()
 {
@@ -50,7 +47,7 @@ GLvoid gamePage()
 
 	paint_button();
 	
-	Font info{ -1.55f, -0.95f, 0.0f, 1000.0f, 5.0f };
+	Font info{ -1.55f, -0.95f, 0.0f, 1000.0f, 3.0f };
 	glColor4f(1.0, 1.0, 1.0, 1.0);
 	glPrint("JoSuhee", info);
 }

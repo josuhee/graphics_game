@@ -7,10 +7,9 @@ extern GLfloat cubeAngleRotation;
 //origin at endPage.cpp
 extern GLfloat degree;
 
-//origin at gamePage.cpp
-extern int player_idx;
-extern int item_idx;
-extern int enemy_idx;
+int player_idx = 0;
+int enemy_idx = 0;
+int item_idx = 0;
 
 void cubeEndTimer(int v)
 {
@@ -32,6 +31,48 @@ void cubeEndTimer(int v)
     }
 }
 
+void enemyEndTimer(int v)
+{
+    Window* win = Window::getInstance();
+
+    if (win->getMode() == 3)
+    {
+        enemy_idx++;
+        if (enemy_idx == 4)
+            enemy_idx -= 4;
+        glutPostRedisplay();
+        glutTimerFunc(100, enemyEndTimer, v);
+    }
+}
+
+void itemEndTimer(int v)
+{
+    Window* win = Window::getInstance();
+    t_map* info = get_map_info();
+
+    if (win->getMode() != 3) return;
+
+    item_idx++;
+    if (item_idx == 8)
+        item_idx -= 8;
+    glutPostRedisplay();
+    glutTimerFunc(100, itemEndTimer, v);
+}
+
+void enemyTimer(int v)
+{
+    Window* win = Window::getInstance();
+
+    if (win->getMode() == 2)
+    {
+        enemy_idx++;
+        if (enemy_idx == 4)
+            enemy_idx -= 4;
+        glutPostRedisplay();
+        glutTimerFunc(100, enemyTimer, v);
+    }
+}
+
 void playerTimer(int v)
 {
     Window* win = Window::getInstance();
@@ -47,6 +88,8 @@ void playerTimer(int v)
     else if (win->getMode() == 3)
     {
         glutTimerFunc(0, cubeEndTimer, v);
+        glutTimerFunc(0, enemyEndTimer, v);
+        glutTimerFunc(0, itemEndTimer, v);
     }
 }
 
@@ -65,19 +108,6 @@ void itemTimer(int v)
     glutTimerFunc(100, itemTimer, v);
 }
 
-void enemyTimer(int v)
-{
-    Window* win = Window::getInstance();
-
-    if (win->getMode() == 2)
-    {
-        enemy_idx++;
-        if (enemy_idx == 4)
-            enemy_idx -= 4;
-        glutPostRedisplay();
-        glutTimerFunc(100, enemyTimer, v);
-    }
-}
 
 pair<int, int> p;
 float e_dx = 0.0f, e_dy = 0.0f;
@@ -122,6 +152,22 @@ void enemyMoveTimer(int v)
     }
 }
 
+void playerStartTimer(int v)
+{
+    Window* win = Window::getInstance();
+
+    if (win->getMode() == 1)
+    {
+        player_idx++;
+        if (player_idx == 6)
+            player_idx -= 6;
+        glutPostRedisplay();
+        glutTimerFunc(100, playerStartTimer, v);
+    }
+}
+
+bool startFlag = true;
+
 void cubeTimer(int v)
 {
     Window* win = Window::getInstance();
@@ -135,12 +181,17 @@ void cubeTimer(int v)
         glutPostRedisplay();
 
         glutTimerFunc(7, cubeTimer, v);
+        if (startFlag)
+        {
+            startFlag = false;
+            glutTimerFunc(0, playerStartTimer, v);
+        }
     }
     if (win->getMode() == 2)
     {
         glutTimerFunc(0, playerTimer, v);
         glutTimerFunc(0, itemTimer, v);
         glutTimerFunc(0, enemyTimer, v);
-        glutTimerFunc(1000, enemyMoveTimer, v);
+        glutTimerFunc(10, enemyMoveTimer, v);
     }
 }
