@@ -79,6 +79,50 @@ void enemyTimer(int v)
     }
 }
 
+pair<int, int> p;
+float e_dx = 0.0f, e_dy = 0.0f;
+bool flag = true;
+
+void enemyMoveUtilTimer(int v)
+{
+    t_map* info = get_map_info();
+
+    if (v == 5)
+    {
+        e_dx = e_dy = 0.0f;
+        info->enemy_x = p.first;
+        info->enemy_y = p.second;
+        flag = true;
+        printf("\n");
+        return;
+    }
+    flag = false;
+    e_dx = (p.first - info->enemy_x) * 0.04f * v;
+    e_dy = (info->enemy_y - p.second) * 0.04f * v;
+    printf("%d %d\n", p.first - info->enemy_x, info->enemy_y - p.second);
+    glutPostRedisplay();
+    glutTimerFunc(100, enemyMoveUtilTimer, v + 1);
+}
+
+void enemyMoveTimer(int v)
+{
+    Window* win = Window::getInstance();
+    t_map* info = get_map_info();
+
+    if (win->getMode() == 2)
+    {
+        if (flag)
+        {
+            p = search_player();
+            glutTimerFunc(0, enemyMoveUtilTimer, 1);
+            if (info->enemy_x == info->player_x && info->enemy_y == info->player_y)
+                win->setMode(3);
+            glutPostRedisplay();
+        }
+        glutTimerFunc(0, enemyMoveTimer, v);
+    }
+}
+
 void cubeTimer(int v)
 {
     Window* win = Window::getInstance();
@@ -98,5 +142,6 @@ void cubeTimer(int v)
         glutTimerFunc(0, playerTimer, v);
         glutTimerFunc(0, itemTimer, v);
         glutTimerFunc(0, enemyTimer, v);
+        glutTimerFunc(1000, enemyMoveTimer, v);
     }
 }

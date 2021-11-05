@@ -149,6 +149,7 @@
     <ClCompile Include="map.cpp" />
     <ClCompile Include="mouseEvent.cpp" />
     <ClCompile Include="draw_utils.cpp" />
+    <ClCompile Include="search_player.cpp" />
     <ClCompile Include="startPage.cpp" />
     <ClCompile Include="timer.cpp" />
   </ItemGroup>

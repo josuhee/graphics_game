@@ -45,11 +45,12 @@ static void checkEnemy(int x, int y)
 	Window* win = Window::getInstance();
 	t_map* info = get_map_info();
 
-	if (info->map[y][x] != 'A') return;
-
-	//game over
-	printf("game clear\n");
-	win->setMode(3);
+	if (info->enemy_x == info->player_x && info->enemy_y == info->player_y)
+	{
+		//game over
+		printf("game over\n");
+		win->setMode(3);
+	}
 }
 
 void upTimer(int v)

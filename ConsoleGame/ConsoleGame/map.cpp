@@ -42,6 +42,9 @@ void		create_map()
 			}
 		}
 	}
+	info->map[1][8] = '0';
+	info->enemy_x = 8;
+	info->enemy_y = 1;
 }
 
 //origin at gamePage.cpp
@@ -51,6 +54,8 @@ extern int	enemy_idx;
 
 //origin at keyEvent.cpp
 extern float	dx, dy;
+
+extern float e_dx, e_dy;
 
 //paint map
 void draw_map()
@@ -85,13 +90,6 @@ void draw_map()
 				ny = 1.0f - y * 0.2f;
 				draw_img_item(item_idx, { nx + 0.05f, ny - 0.2f + 0.05f }, { nx + 0.2f - 0.05f, ny - 0.05f });
 			}
-			//enemy
-			if (info->map[y][x] == 'A')
-			{
-				nx = x * 0.2f - 1.0f;
-				ny = 1.0f - y * 0.2f;
-				draw_img_enemy(enemy_idx, { nx, ny - 0.2f }, { nx + 0.2f, ny });
-			}
 			//exit
 			if (info->map[y][x] == 'E')
 			{
@@ -101,4 +99,8 @@ void draw_map()
 			}
 		}
 	}
+	//enemy
+	nx = info->enemy_x * 0.2f - 1.0f;
+	ny = 1.0f - info->enemy_y * 0.2f;
+	draw_img_enemy(enemy_idx, { nx + e_dx, ny - 0.2f + e_dy }, { nx + 0.2f + e_dx, ny + e_dy });
 }
