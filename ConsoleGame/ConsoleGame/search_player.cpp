@@ -4,6 +4,7 @@
 
 int arr[10][10];
 
+// init array
 static void init_arr()
 {
 	Window* win = Window::getInstance();
@@ -15,6 +16,7 @@ static void init_arr()
 			if (info->map[i][j] == '1') arr[i][j] = -1;
 }
 
+// search player, use bfs algorithm
 pair<int, int> search_player()
 {
 	init_arr();

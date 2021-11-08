@@ -2,9 +2,12 @@
 
 GLfloat degree = 0.0f;
 bool    solid_e[2] = { false, false };
+
+// origin at timer.cpp, animation index
 extern int enemy_idx;
 extern int item_idx;
 
+// game clear page
 static GLvoid ClearPage(void)
 {
     t_map* map = get_map_info();
@@ -35,6 +38,7 @@ static GLvoid ClearPage(void)
     glPrint("EXIT", info2);
 }
 
+// game over page
 static GLvoid OverPage(void)
 {
     t_map* map = get_map_info();

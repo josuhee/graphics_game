@@ -1,8 +1,6 @@
 ﻿#include "game.h"
 #include "window.h"
 
-//GLfloat	cubeAngleRotation = 0.0f;
-
 void reshape(GLint w, GLint h) {
     Window* win = Window::getInstance();
     GLfloat max_w;
@@ -71,13 +69,11 @@ int main(int argc, char** argv) {
     glutTimerFunc(100, cubeTimer, 0);
     
     //event
-    //glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
     glutKeyboardFunc(processNormalKey);
     glutSpecialFunc(processSpcialKey);
     glutSpecialUpFunc(processSpecialKeyUp);
     glutMouseFunc(mouse);
     glutPassiveMotionFunc(hover_mouse);
-
 
     //loop
     glutMainLoop();

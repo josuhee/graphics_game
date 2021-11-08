@@ -2,6 +2,7 @@
 
 bool keyPress[4] = { false,};
 
+// draw key press image
 static GLvoid paint_button()
 {
 	if (keyPress[0]) //left
@@ -26,7 +27,7 @@ static GLvoid paint_button()
 	}
 }
 
-
+// game page
 GLvoid gamePage()
 {
 	glColor4f(232.0f / 255.0f, 232.0f / 255.0f, 232.0f / 255.0f, 1.0f);

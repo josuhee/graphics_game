@@ -2,21 +2,23 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include <stb/stb_image.h>
 
+/****************************
+*  image init source file   *
+*****************************/
+
 GLuint  texID[5];
 GLuint  playerID[6];
 GLuint  itemID[8];
 GLuint  enemyID[4];
 int width, height;
 
+// load image file
 static unsigned char* LoadMeshFromFile(const char* texFile)
 {
-    GLuint texture;
-    glGenTextures(1, &texture);
     FILE* fp = NULL;
     if (fopen_s(&fp, texFile, "rb")) {
-        printf("ERROR : No %s. \n fail to bind %d\n", texFile, texture);
+        printf("ERROR : No %s. \n fail to bind texture\n", texFile);
         exit(1);
-        //return (unsigned char*)false;
     }
     int channel;
     unsigned char* image = stbi_load_from_file(fp, &width, &height, &channel, 4);
@@ -36,6 +38,7 @@ static void init_image_util(char* filename, int n)
     free(bitmap);
 }
 
+// texture, player animation image
 static void init_image_player(char* filename, int n)
 {
     unsigned char* bitmap;
@@ -48,6 +51,7 @@ static void init_image_player(char* filename, int n)
     free(bitmap);
 }
 
+// texture, item animation image
 static void init_image_item(char* filename, int n)
 {
     unsigned char* bitmap;
@@ -60,6 +64,7 @@ static void init_image_item(char* filename, int n)
     free(bitmap);
 }
 
+// texture, enemy animation image
 static void init_image_enemy(char* filename, int n)
 {
     unsigned char* bitmap;
@@ -72,9 +77,12 @@ static void init_image_enemy(char* filename, int n)
     free(bitmap);
 }
 
+// init image
 void init_image(void)
 {
-    stbi_set_flip_vertically_on_load(true);
+    stbi_set_flip_vertically_on_load(true); // 상하 반전
+
+    // utils
     glEnable(GL_TEXTURE_2D);
     glGenTextures(4, &texID[0]);
     init_image_util((char*)"image/else/block.png", 0);
@@ -82,6 +90,7 @@ void init_image(void)
     init_image_util((char*)"image/else/sample.png", 2);
     init_image_util((char*)"image/else/over.png", 3);
     
+    // player
     glEnable(GL_TEXTURE_2D);
     glGenTextures(6, &playerID[0]);
     init_image_player((char*)"image/player/player_0.png", 0);
@@ -91,6 +100,7 @@ void init_image(void)
     init_image_player((char*)"image/player/player_4.png", 4);
     init_image_player((char*)"image/player/player_5.png", 5);
 
+    // item
     glEnable(GL_TEXTURE_2D);
     glGenTextures(8, &itemID[0]);
     init_image_item((char*)"image/collect/collect_0.png", 0);
@@ -102,6 +112,7 @@ void init_image(void)
     init_image_item((char*)"image/collect/collect_6.png", 6);
     init_image_item((char*)"image/collect/collect_7.png", 7);
 
+    // enemy
     glEnable(GL_TEXTURE_2D);
     glGenTextures(4, &enemyID[0]);
     init_image_enemy((char*)"image/enemy/anim_0.png", 0);
@@ -109,6 +120,11 @@ void init_image(void)
     init_image_enemy((char*)"image/enemy/anim_2.png", 2);
     init_image_enemy((char*)"image/enemy/anim_3.png", 3);
 }
+
+
+/*************************
+* Draw image function *
+**************************/
 
 void draw_img(int n, t_point_f p1, t_point_f p2)
 {

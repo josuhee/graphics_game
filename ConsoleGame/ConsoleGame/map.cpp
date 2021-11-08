@@ -55,7 +55,6 @@ extern int	enemy_idx;
 
 //origin at keyEvent.cpp
 extern float	dx, dy;
-
 extern float e_dx, e_dy;
 
 //paint map
@@ -119,9 +118,7 @@ void draw_map()
 	{
 		if (player[0].y == enemy[0].y && player[1].y == enemy[1].y)
 		{
-			//printf("game over LR\n");
 			win->setMode(3);
-			//Sleep(1000);
 		}
 	}
 
@@ -130,9 +127,7 @@ void draw_map()
 	{
 		if (player[0].x == enemy[0].x && player[1].x == enemy[1].x)
 		{
-			//printf("game over UD\n");
 			win->setMode(3);
-			//Sleep(1000);
 		}
 	}
 	

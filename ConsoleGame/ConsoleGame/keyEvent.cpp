@@ -4,6 +4,7 @@
 bool mvFlag = true;
 float dx = 0.0f, dy = 0.0f;
 
+// map 내의 모든 item을 획득했는지 확인
 static void checkItem(int x, int y)
 {
 	t_map* info = get_map_info();
@@ -27,6 +28,7 @@ static void checkItem(int x, int y)
 	}
 }
 
+// map의 exit에 접근했는지 확인
 static void checkExit(int x, int y)
 {
 	Window* win = Window::getInstance();
@@ -40,6 +42,7 @@ static void checkExit(int x, int y)
 	info->clear = true;
 }
 
+// map의 enemy와 접근했는지 확인
 static void checkEnemy(int x, int y)
 {
 	Window* win = Window::getInstance();
@@ -53,6 +56,7 @@ static void checkEnemy(int x, int y)
 	}
 }
 
+// 위쪽으로 애니메이션
 void upTimer(int v)
 {
 	t_map* info = get_map_info();
@@ -78,6 +82,7 @@ void upTimer(int v)
 	glutTimerFunc(40, upTimer, v+1);
 }
 
+// 아래쪽으로 애니메이션
 void downTimer(int v)
 {
 	t_map* info = get_map_info();
@@ -102,6 +107,7 @@ void downTimer(int v)
 	glutTimerFunc(40, downTimer, v + 1);
 }
 
+// 왼쪽 애니메이션
 void leftTimer(int v)
 {
 	t_map* info = get_map_info();
@@ -126,6 +132,7 @@ void leftTimer(int v)
 	glutTimerFunc(40, leftTimer, v + 1);
 }
 
+// 오른쪽 애니메이션
 void rightTimer(int v)
 {
 	t_map* info = get_map_info();
@@ -150,12 +157,14 @@ void rightTimer(int v)
 	glutTimerFunc(40, rightTimer, v + 1);
 }
 
+// move player
 void move_player(int num, int x, int y)
 {
 	if (!(x >= 0 && y >= 0 && x < 10 && y < 10)) return;
 
 	t_map* info = get_map_info();
 
+	//flag를 통해 키의 중복 접근 제한
 	if (mvFlag)
 	{
 		//move
@@ -212,6 +221,7 @@ void processSpcialKey(int key, int x, int y)
 	glutPostRedisplay();
 }
 
+// key up event
 void processSpecialKeyUp(int key, int x, int y)
 {
 	Window* win = Window::getInstance();

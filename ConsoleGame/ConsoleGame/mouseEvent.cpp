@@ -82,8 +82,6 @@ void hover_mouse(int x, int y)
     pair<float, float> p;
     p = getPoint(x, y);
 
-    //printf("%.1f %.1f\n", p.first, p.second);
-
     //Start Page
     if (win->getMode() == 1)
     {
