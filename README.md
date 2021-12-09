@@ -1,6 +1,6 @@
 <hr/>  
 
-<h2 align="center">🚀 OpenGL Project 🚀</h2>  
+<h3 align="center">🚀 OpenGL Project 🚀</h3>  
 <hr/>  
 
 ## ✔ 개발환경
